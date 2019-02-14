@@ -1,0 +1,105 @@
+.row {
+	margin-top: 20px;
+	margin-left: 5px;
+}
+
+.btn {
+	border-radius: 0px;
+	background-color: #0099cc;
+	color: white;
+	font-size: 40px;
+}
+
+#logo {
+	height: 100px;
+	margin: 0px;
+	padding: 0px;
+}
+
+#side-box {
+	background-color: black;
+	height:675;
+}
+
+#side-time p {
+	margin-top: .5rem;
+	margin-bottom: .5rem;
+	font-size: 4rem;
+	color: white;
+}
+
+#side-calendar {
+	background-color: white;
+	height:40%;
+}
+
+#side-calendar p {
+	color: black;
+	font-weight: 600;
+	font-size: 1.65rem;
+	padding-top: 5px;
+}
+
+#side-text p {
+	color: white;
+	font-weight: 600;
+	font-size: 1.65rem;
+	padding-top: 5px;
+}
+
+#side-map {
+	background-color: white;
+	height: 35%;
+}
+.carousel {
+	
+}
+
+/*media queries in css*/
+@media only screen and (max-width: 380px) {
+	
+	
+}
+
+@media only screen and (min-width: 381px) and (max-width: 480px) {
+}
+
+@media only screen and (min-width: 481px) and (max-width: 700px) {
+}
+
+@media only screen and (min-width: 701px)
+and (max-width: 819px) {
+
+}
+@media only screen and (min-width: 820px)
+and (max-width: 980px) {
+
+}
+
+@media only screen and (min-width: 981px)
+and (max-width: 1349px) {
+
+}
+
+@media only screen and (min-width: 1350px)
+and (max-width: 2399px) {
+
+}
+
+@media only screen and (min-width: 2400px)
+and (max-width: 5000px) {
+
+}
+
+@media only screen
+and (min-device-width : 768px)
+and (max-device-width : 1024px)
+and (orientation : landscape)
+and (-webkit-min-device-pixel-ratio: 2) {
+}
+
+@media all and (-ms-high-contrast: none),
+       (-ms-high-contrast: active) {
+    /*IE10+ CSS styles go here*/
+
+}  
