@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+        <script>if (typeof module === 'object') {window.module = module; module = undefined;}</script>
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+        <link rel="stylesheet" href="main.css">
+
+        <!-- Optional JavaScript -->
+        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+        <script src="https://cdn.rawgit.com/vast-engineering/jquery-popup-overlay/1.7.13/jquery.popupoverlay.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="owl.carousel.min.css" />
+        <link rel="stylesheet" href="owl.theme.default.min.css">
+        <script src="owl.carousel.min.js"></script>
+        <script src="circletype.min.js"></script>
+        <script>if (window.module) module = window.module;</script>
+        <title>Brinton Entertainment</title>
+    </head>
+    <body>
+		<a href="../index.html"><img id="icon" src="icon.png" width="75" height="75"></a>
+        <div id="main_menu">
+            <div class="jumbotron" style="margin-top: -45px;">
+                <h1 id="curved-1">BRINTON</h1>
+                <h2 id="curved-2">ENTERTAINMENT</h2>
+                <h3>CO.</h3>
+                <div class="line1"></div>
+                <div class="line2"></div>
+                <div class="line3"></div>
+                <div class="line4"></div>
+                <div class="line5"></div>
+                <div class="line6"></div>
+            </div>
+            <div id="buttons">
+                <a href="nowShowing.html"><div class="main_btn" id="watch" style="margin-right: 15px;">MAGIC LANTERNS</div></a>
+                <a href="meet.html"><div class="main_btn" id="meet" style="margin-right: 15px;">GALLERY INFO</div></a>
+				<a href="brintonMap/index.html"><div class="main_btn" id="map">SEE THE MAP</div></a>
+            </div>
+            <div id="embed-wrapper">
+            <div id="home-video-popup">
+                <iframe id="home-video" class="pop_item" width="600" height="315" src="https://www.youtube.com/embed/9sE2i7S1P_g?rel=0&loop=1&controls=0&showinfo=0&autoplay=1&disablekb=1&modestbranding=1&disablekb=1&enablejsapi=1" frameborder="0" allowfullscreen></iframe>
+            </div>
+          </div>
+        </div>
+
+
+        <script>
+		new CircleType(document.getElementById('curved-1')).radius(900);
+        new CircleType(document.getElementById('curved-2')).radius(700);
+				
+          //imported from ideal repo
+            var tag = document.createElement('script');
+            tag.src = "https://www.youtube.com/iframe_api";
+            var firstScriptTag = document.getElementsByTagName('script')[0];
+            firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+            var player;
+            function onYouTubeIframeAPIReady() {
+            	player = new YT.Player('home-video', {
+            		events: {
+            			'onStateChange':
+            					 function(e){
+            							 if (e.data === YT.PlayerState.ENDED) {
+            									 player.playVideo();
+            							 }
+            					 }
+            				 	}
+            	});
+            }
+        </script>
+        <!--<script>
+            var ipcRenderer = require('electron').ipcRenderer;
+            $(document).ready(function(){
+                new CircleType(document.getElementById('curved-1')).radius(900);
+                new CircleType(document.getElementById('curved-2')).radius(700);
+
+				//these buttons open their corresponding windows when they are clicked
+                var watchBtn = document.getElementById('watch');
+                watchBtn.onclick = function() {
+                    ipcRenderer.send('openShowing')
+                }
+                var meetBtn = document.getElementById('meet');
+                meetBtn.onclick = function() {
+                    ipcRenderer.send('openMeet')
+                }
+				var mapBtn = document.getElementById('map');
+                mapBtn.onclick = function() {
+                    ipcRenderer.send('openMap')
+                }
+            });
+
+			var t, open, close;
+			function idleTimer() {
+				//add all conditions on which the timer should reset (anything that counts as activity)
+				window.onload=resetTimer;
+				window.onclick=resetTimer;
+				//can receive messages from other windows if they also have activity
+				ipcRenderer.on('reset', function() {
+					resetTimer();
+				})
+
+				//sets up the inactivity rotation and handles all actions needed during the rotation
+				function rotation() {
+					//close/hide anything that shouldn't be open when inactivity starts
+					ipcRenderer.send('closeShowing');
+					ipcRenderer.send('closeMeet');
+					ipcRenderer.send('closeMap');
+
+					//main rotation timer
+					open = setInterval(function() {
+						//opens the map page after 5 minutes
+						ipcRenderer.send('openMap');
+						close = setTimeout(function() {
+							//closes the map 2.5 minutes after the map is opened
+							ipcRenderer.send('closeMap');
+						}, 150000);
+					}, 300000);
+				}
+
+				//determines how long after any activity the rotation timer will start
+				function resetTimer() {
+					//clear all the other timers whenever there is any activity
+					clearTimeout(close);
+					clearInterval(open);
+					clearTimeout(t);
+					//if there is not any more activity after the t timer is initially cleared,
+					//it will run the rotation function after 5 minutes
+					t = setTimeout(rotation, 300000);
+				}
+			}
+			
+			//run the idleTimer on the main page of the project
+			idleTimer();
+        </script>-->
+    </body>
+</html>
