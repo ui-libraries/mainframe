@@ -1,142 +1,59 @@
-html{
-	width: 100%;
-	height: 100%;
-}
-body {
-    background-color: black;
-    overflow: hidden;
-	width: 100%;
-	height: 100%;
-}
-#embed-wrapper{
-     position: absolute;
-     height: 100%;
-     width: 100%;
-     pointer-events: none;
+html {
+	overflow-x: hidden;
 }
 
-.jumbotron {
-    width: 1000px;
-    margin-left: 145px;
-    margin-right: auto;
-    background-color: black;
-    color: orange;
-    font-family: 'Dotline';
-    text-align: center;
+h1, h2, h3 {
+	font-family: "Dotline", cursive;
+	font-weight: 400;
+	color: orange;
 }
 
-.jumbotron h1 {
-    padding: 0px;
-    margin: 0px;
-    font-size: 8em;
+#brintonLogo h1 {
+	font-size: 9rem;
+}
+#brintonLogo h2 {
+	font-size: 4rem;
+	margin-top: -8rem;
+}
+#brintonLogo h3 {
+	font-size: 3.5rem;
+	margin-top: -6rem;
 }
 
-.jumbotron h2 {
-    padding: 0px;
-    margin: 0px;
-    font-size: 4em;
-    transform: translateY(-65%)
+html body{
+	background-color: black;
 }
 
-.jumbotron h3 {
-    padding: 0px;
-    margin: 0px;
-    font-size: 3em;
-    transform: translateY(-145px)
+.container-fluid {
+	background-color: black;
+	color: orange;
 }
 
-.container {
-    margin-left: auto;
-    margin-right: auto;
-    color: white;
-    font-family: 'Dotline';
-    text-align: center;
-    width: 100%;
+.btn-toolbar {
+	margin-top: 1rem;
 }
 
-.container h2 {
-    transform: translateY(-240px);
-    font-weight: 500;
-    font-size: 4em;
+.btn {
+	font-family: 'Dotline', sans-serif;
+	font-weight: 800;
+	border-radius: 0px;
+	font-size: 1.5rem;
+	height: 4rem;
+	background-color: orange;
 }
 
-.item img {
-    width: 480px;
-    height: 270px;
-    border: 3px solid orange;
+.btn:focus {
+	outline:none;
+	box-shadow:none;
 }
 
-.owl-carousel {
-    width: 1000px;
-    margin-left: auto;
-    margin-right: auto;
-    transform: translateY(-235px)
+#brintonLogo {
+	margin-top: 6rem;
 }
 
-.pop_item {
-    border: 3px solid orange;
-}
-
-.main_btn {
-    height: 50px;
-    width: 300px;
-    background-color: orange;
-    display: inline-block;
-    font-family: 'Dotline';
-    text-align: center;
-    line-height: 55px;
-    font-size: 1.7em;
-    font-weight: 800;
-}
-
-#buttons {
-    height: 50px;
-    width: 940px;
-    margin-left: auto;
-    margin-right: auto;
-    transform: translateY(-240px);
-}
-
-.line1 {
-    width: 90px;
-    height: 1px;
-    background-color: orange;
-    transform: translate(315px, -195px)
-}
-
-.line2 {
-    width: 130px;
-    height: 1px;
-    background-color: orange;
-    transform: translate(275px, -180px)
-}
-
-.line3 {
-    width: 170px;
-    height: 1px;
-    background-color: orange;
-    transform: translate(235px, -165px)
-}
-
-.line4 {
-    width: 90px;
-    height: 1px;
-    background-color: orange;
-    transform: translate(525px, -197px)
-}
-
-.line5 {
-    width: 130px;
-    height: 1px;
-    background-color: orange;
-    transform: translate(525px, -182px)
-}
-
-.line6 {
-    width: 170px;
-    height: 1px;
-    background-color: orange;
-    transform: translate(525px, -167px)
+#homeBtn {
+	float: left;
+	margin-top: -5rem;
 }
 
 #icon {
@@ -146,43 +63,34 @@ body {
     border-bottom-right-radius: 8px;
     border-top-right-radius: 8px;
     padding: 0px 8px;
-    margin-top: 30px;
     background-color: orange;
-    z-index: 1000;
+	float: left;
+	margin-top: -5rem;
+	z-index: 1000;
 }
 
-#meet_text {
-    color: white;
-    font-size: 1em;
-    font-family: 'Montserrat';
-    width: 830px;
+#nowShowing {
+	margin-top: 2rem;
+}
+
+#nowShowing h2 {
+	font-size: 4rem;
+	color: white;
+}
+
+.item img {
+    height: 400px;
+    border: 3px solid orange;
+}
+
+.owl-carousel {
     margin-left: auto;
     margin-right: auto;
 }
-#about-content{
-  margin-top: -130px;
-}
-.about-title{
-  font-size:2em;
-  color: white;
-  font-family: 'Montserrat';
-  width: 830px;
-  margin-left: auto;
-  margin-right: auto;
-}
-.about-gallery-dates{
-  font-size:1.5em;
-  color: white;
-  font-family: 'Montserrat';
-  width: 830px;
-  margin-left: auto;
-  margin-right: auto;
-}
-#home-video-popup{
-  margin-top:-215px;
-  margin-left: auto;
-  margin-right: auto;
-  width:600px;
+
+.pop_item {
+	margin-top: 2rem;
+    border: 3px solid orange;
 }
 
 .clickSwitch{
@@ -198,7 +106,21 @@ body {
 	margin-right: auto;
   text-align: center;
 }
-/*Map Specific CSS*/
+.popups {
+	display:none;
+}
+
+#galleryInfo {
+	margin-top: 2rem;
+	color: white;
+	font-family: 'Montserrat';
+}
+
+#galleryInfo p {
+	margin-top: 1rem;
+}
+
+/*map specific*/
 #feature_infos {
 	width:500px;
   height: 250px;
@@ -237,34 +159,3 @@ body {
 	right: 90px;
 	width: 350px;
 }
-
-/* search bar and slider buttons are only a prototypes as of right now, not fully working
-#sliderBtns {
-	width: 500px;
-	z-index: 1000;
-	position: relative;
-	left: 205px;
-	top: 415px;
-}
-
-#radioBtns {
-	padding: 10px;
-}
-
-label {
-	font-family: 'Montserrat';
-}
-
-#search_bar {
-	width:400px;
-  height: 350px;
-  background: rgba(255, 255, 255, 0.7);
-  position: relative;
-  float: right;
-  top:90px;
-  right:25px;
-  padding:5px;
-  border:3px solid grey;
-	z-index: 1000;
-	border-radius: 8px;
-}*/
